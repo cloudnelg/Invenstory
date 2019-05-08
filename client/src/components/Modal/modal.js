@@ -3,6 +3,8 @@ import Radium from 'radium';
 import './modal.css';
 import FileUpload from './awsUpload';
 
+
+//Radium
 var styles = {
   close: {
     position: 'fixed',
@@ -57,6 +59,8 @@ var styles = {
 
 
 }
+
+//Radium End
 
 
 class Mod extends React.Component {

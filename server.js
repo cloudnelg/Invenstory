@@ -24,6 +24,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/appliances");
 
   // Use Routes
 app.use('/api/appliances', require('./routes/api/appliances'));
+app.use('/api/furniture', require('./routes/api/furniture'));
+app.use('/api/entertainment', require('./routes/api/entertainment'));
+
 
 
 
