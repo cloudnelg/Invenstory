@@ -1,4 +1,23 @@
 import React from 'react';
+import Radium from 'radium';
+import Mod from './Modal/modal';
+
+var styles = {
+  base: {
+    background: 'black',
+    border: 0,
+    borderRadius: 2,
+    color: 'white',
+    padding: '1.1em',
+    cursor: 'pointer',
+    marginLeft: '25%',
+    marginRight: '68.5%',
+  },
+  list: {
+    marginLeft: '15%',
+  }
+};
+
 
 
 class Furn extends React.Component {
@@ -8,6 +27,9 @@ class Furn extends React.Component {
         isHidden: true
       }
     }
+    hi () {
+      alert('hi')
+    }
     toggleHidden () {
       this.setState({
         isHidden: !this.state.isHidden
@@ -16,7 +38,7 @@ class Furn extends React.Component {
     render () {
       return (
         <div>
-          <p onClick={this.toggleHidden.bind(this)} >
+          <p onClick={this.toggleHidden.bind(this)} style={styles.base} >
             Furniture
           </p>
 
@@ -28,12 +50,13 @@ class Furn extends React.Component {
   }
   
 const List = () => (
-  <div className='container'>
+  <div className='container' style={styles.list}>
+    <Mod />
     <p>Sofa</p>
     <p>Bed</p>
     <p>Chair</p>
-    </div>
+  </div>
   )
   
 
-export default Furn;
+export default Radium(Furn);

@@ -1,5 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
+import Mod from './Modal/modal';
+import './items.css'
 
 var styles = {
   base: {
@@ -7,9 +9,18 @@ var styles = {
     border: 0,
     borderRadius: 2,
     color: 'white',
-    padding: '1.5em'
+    padding: '1.2em',
+    marginLeft: '25%',
+    cursor: 'pointer',
+  },
+
+  list: {
+    marginLeft: '15%',
   }
+
 };
+
+
 
 
 
@@ -27,6 +38,8 @@ class Appliance extends React.Component {
     }
 
     
+
+    
     render () {
       return (
         <div>
@@ -42,11 +55,11 @@ class Appliance extends React.Component {
   
   
   const List = () => (
-  <div className='container'>
+  <div className='container' style={styles.list}>
   
         <div>
+          <Mod />
         <p>Hello</p>
-
         </div>
     </div>
   )

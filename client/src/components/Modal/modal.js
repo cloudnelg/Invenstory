@@ -1,12 +1,12 @@
 import React from "react";
 import Radium from 'radium';
 import './modal.css';
-import Images from './imageUploader';
+import FileUpload from './awsUpload';
 
 var styles = {
   close: {
     position: 'fixed',
-    background: 'linear-gradient(90deg, #0000cc, #6666ff, #b3b3ff, #0000cc)',
+    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
     backgroundSize: '400%',
     borderRadius: '10px',
     border: "1px",
@@ -19,7 +19,7 @@ var styles = {
     padding: '5px 10px 5px 10px',
   },
   plus: {
-    background: 'linear-gradient(90deg, #0000cc, #6666ff, #b3b3ff, #0000cc)',
+    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
     backgroundSize: '400%',
     borderRadius: '10px',
     textAlign: 'center',
@@ -28,21 +28,35 @@ var styles = {
     cursor: "pointer",
     fontSize: "20px",
     fontWeight: 200,
-    marginRight: '1500px',
+    marginLeft: '75%',
+    marginRight: '275px',
     
   },
   moda: {
+    background: "url('https://img.freepik.com/free-photo/white-marble-texture-with-natural-pattern-background-design-art-work_24076-186.jpg?size=626&ext=jpg')",
+    backgroundSize: '75%',
+    borderRadius: '10px',
+    marginRight: '25%',
+    marginLeft: '25%',
     textAlign: 'center',
-    color: 'white',
+    color: 'Black',
+    fontSize: '19px',
+  },
+  comment: {
+    width: '400px',
+    paddingBottom: '5%',
   },
   sub: {
     marginTop: '1%',
     marginLeft: '47%',
   },
+  img: {
+    marginTop: '-7%',
+    marginRight: '20%',
+  }
 
 
 }
-
 
 
 class Mod extends React.Component {
@@ -65,16 +79,22 @@ class Mod extends React.Component {
         <main>
           <Modal  show={this.state.show} handleClose={this.hideModal} >
           <div style={styles.img}>
-          <Images />
+          <FileUpload />
           </div>
+
             <div style={styles.moda}>
-              <p>Furniture Type</p>
-              <input type="text" placeholder='Furniture' />
+              <p>Appliance Name</p>
+              <input type="text" name="name" placeholder='Appliance Name' />
             </div>
             
             <div style={styles.moda}>
               <p>Price</p>
               <input type="text" name="name" placeholder='Price' />
+            </div>
+
+            <div style={styles.moda}>
+              <p>Comment</p>
+              <textarea type="text" name="name" placeholder='Comment' style={styles.comment}/>
               
             </div>
             
