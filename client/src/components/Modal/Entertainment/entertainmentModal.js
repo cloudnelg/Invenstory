@@ -2,7 +2,7 @@ import React from "react";
 import Radium from 'radium';
 import '../modal.css';
 import FileUploadEnt from './awsUploadEntertainment';
-const superagent = require('superagent')
+const superagent = require('superagent');
 
 
 //Radium
