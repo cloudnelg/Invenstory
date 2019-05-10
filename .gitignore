@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 node_modules
-=======
-node_modules
->>>>>>> origin/second_page
+.env
