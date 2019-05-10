@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Appliance from './components/appliances';
 import Radium from 'radium';
 import Furn from './components/furniture'
-//import Mod from './components/Modal/modal';
+import Ent from './components/entertainment'
+
+
 
 var styles = {
   background: {
@@ -18,10 +20,12 @@ class App extends Component {
           <div className='container' style={styles.background}>
             <Appliance />
             <Furn />
+            <Ent />
+            
             
           </div>
         );
       }
 }
 
-export default App;
+export default Radium(App);

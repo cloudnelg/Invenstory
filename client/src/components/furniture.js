@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import Mod from './Modal/modal';
+import ModFurn from './Modal/Furniture/furnitureModal';
 
 var styles = {
   base: {
@@ -15,6 +15,8 @@ var styles = {
   },
   list: {
     marginLeft: '15%',
+    color: 'white',
+    background: 'black',
   }
 };
 
@@ -27,9 +29,7 @@ class Furn extends React.Component {
         isHidden: true
       }
     }
-    hi () {
-      alert('hi')
-    }
+
     toggleHidden () {
       this.setState({
         isHidden: !this.state.isHidden
@@ -51,7 +51,8 @@ class Furn extends React.Component {
   
 const List = () => (
   <div className='container' style={styles.list}>
-    <Mod />
+    <ModFurn />
+
     <p>Sofa</p>
     <p>Bed</p>
     <p>Chair</p>

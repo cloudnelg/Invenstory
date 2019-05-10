@@ -9,8 +9,6 @@
 
 .modal-main {
   position:fixed;
-  background: url('https://static.houselogic.com/content/images/amana-red-kitchen-fridge.jpg');
-  background-size: 100% 100%;
   width: 80%;
   height: 500px;
   top: 50%;

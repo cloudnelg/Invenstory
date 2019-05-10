@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import Mod from './Modal/modal';
+import Mod from './Modal/Appliances/appliancesModal';
 import './items.css'
 
 var styles = {
