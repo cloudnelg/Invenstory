@@ -5,13 +5,18 @@ import Radium from 'radium';
 
 var styles = {
   moda: {
-  background: "url('https://img.freepik.com/free-photo/white-marble-texture-with-natural-pattern-background-design-art-work_24076-186.jpg?size=626&ext=jpg')",
-  backgroundSize: '10%',
+  background: "url('https://wallpaperaccess.com/full/130053.jpg')",
+  backgroundSize: '100%',
   borderRadius: '10px',
+  marginLeft: '25%',
+  marginTop: '10%',
+  zIndex: -1,
+  paddingTop: '5%',
   },
   upload: {
     marginLeft: '25%',
   }
+
 };
  
 
@@ -48,7 +53,7 @@ class FileUploadApp extends Component {
 
   render () {
     return (
-    <div className='container aws' style={styles.moda}>
+    <div className='container' style={styles.moda}>
       <form  style={styles.upload} onSubmit={this.submitFile}>
         <input  label='upload file' type='file' onChange={this.handleFileUpload} />
         <button  type='submit' onClick={this.submitFile}>Send</button>

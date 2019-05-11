@@ -9,7 +9,7 @@ const superagent = require('superagent');
 var styles = {
   close: {
     position: 'fixed',
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
     backgroundSize: '400%',
     borderRadius: '10px',
     border: "1px",
@@ -22,7 +22,7 @@ var styles = {
     padding: '5px 10px 5px 10px',
   },
   plus: {
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
     backgroundSize: '400%',
     borderRadius: '10px',
     textAlign: 'center',
@@ -31,18 +31,18 @@ var styles = {
     cursor: "pointer",
     fontSize: "20px",
     fontWeight: 200,
-    marginLeft: '75%',
-    marginRight: '275px',
-
+    marginLeft: '40%',
+    marginRight: '40%',
+    
   },
   moda: {
-    background: "url('http://4.bp.blogspot.com/-s1j9uEPgzAc/UFH3hpP95jI/AAAAAAAACHQ/kS_EsSywhio/s1600/Seamless+blue+black+marble+cloud+texture.jpg')",
+    background: "url('https://image.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg')",
     backgroundSize: '50%',
     borderRadius: '10px',
     marginRight: '25%',
     marginLeft: '25%',
     textAlign: 'center',
-    color: 'snow',
+    color: 'Black',
     fontWeight: 900,
     fontSize: '19px',
   },
@@ -59,10 +59,9 @@ var styles = {
     marginRight: '20%',
   },
   back: {
-    background: "url('https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')",
+    background: "url('http://tukpencarialhaq.com/wp-content/uploads/2018/06/chair-blue.jpg')",
+    backgroundSize: '100%',
   }
-
-
 }
 //Radium End
 
@@ -95,6 +94,12 @@ class ModFurn extends React.Component {
   handleSubmitMessage(event) {
     event.preventDefault();
 
+    if (this.state.furniture_name === ''){
+      return alert("Furniture Name And Price Both Required To Submit!");
+    }if (this.state.price === '') {
+      return alert("Furniture Name And Price Both Required To Submit!");
+    }
+
     const data = {
       furniture_name: this.state.furniture_name,
       price: this.state.price,
@@ -108,9 +113,9 @@ class ModFurn extends React.Component {
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err || !res.ok) {
-          console.log('Error');
+          alert('Error Furniture Not Added!');
         } else {
-          console.log('Success');
+          alert('New Furniture Has Been Added! Refresh Page To Reveal New Furniture Item!');
         }
       });
   }
@@ -126,7 +131,13 @@ class ModFurn extends React.Component {
   }
 
   submit = () => {
-    this.setState({ show: false });
+    if (this.state.furniture_name === '') {
+      this.setState({ show: true });
+    }if(this.state.price === ''){
+      this.setState({ show: true });
+    }else {
+      this.setState({ show: false });
+    }
   }
 
   render() {

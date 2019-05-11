@@ -9,7 +9,7 @@ const superagent = require('superagent')
 var styles = {
   close: {
     position: 'fixed',
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #d9d9d9, #b3b3b3, #737373, #d9d9d9, #b3b3b3, #737373)',
     backgroundSize: '400%',
     borderRadius: '10px',
     border: "1px",
@@ -22,7 +22,7 @@ var styles = {
     padding: '5px 10px 5px 10px',
   },
   plus: {
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
     backgroundSize: '400%',
     borderRadius: '10px',
     textAlign: 'center',
@@ -31,13 +31,13 @@ var styles = {
     cursor: "pointer",
     fontSize: "20px",
     fontWeight: 200,
-    marginLeft: '75%',
-    marginRight: '275px',
+    marginLeft: '40%',
+    marginRight: '40%',
     
   },
   moda: {
-    background: "url('https://img.freepik.com/free-photo/white-marble-texture-with-natural-pattern-background-design-art-work_24076-186.jpg?size=626&ext=jpg')",
-    backgroundSize: '10%',
+    background: "url('https://wallpaperaccess.com/full/130053.jpg')",
+    backgroundSize: '50%',
     borderRadius: '10px',
     marginRight: '25%',
     marginLeft: '25%',
@@ -96,6 +96,11 @@ class Mod extends React.Component {
   handleSubmitMessage(event) {
       event.preventDefault();
 
+      if (this.state.appliance_name === ''){
+        return alert("Appliance Name And Price Both Required To Submit!");
+      }if (this.state.price === '') {
+        return alert("Appliance Name And Price Both Required To Submit!");
+      }
       const data = {
         appliance_name: this.state.appliance_name,
         price: this.state.price,
@@ -109,12 +114,12 @@ class Mod extends React.Component {
         .set('Accept', 'application/json')
         .end((err, res) => {
           if (err || !res.ok) {
-            console.log('Error');
+            alert('Error Appliance Not Added!');
           } else {
-            console.log('Success');
+            alert('New Appliance Has Been Added! Refresh page to reveal new Appliance!');
           }
         });
-      }
+  }
 
     state = { show: false }
   
@@ -127,13 +132,21 @@ class Mod extends React.Component {
     }
 
     submit = () => {
-      this.setState({ show: false });
+      if (this.state.appliance_name === '') {
+        this.setState({ show: true });
+      }if(this.state.price === ''){
+        this.setState({ show: true });
+      }else {
+        this.setState({ show: false });
+      }
     }
+
+    
       
     render() {
       return (
         <main>
-          <Modal  show={this.state.show} handleClose={this.hideModal} >
+          <Modal closeTimeoutMS={200} show={this.state.show} handleClose={this.hideModal} >
           <div style={styles.img}>
           <FileUploadApp />
           </div>
@@ -168,7 +181,7 @@ class Mod extends React.Component {
   
     return (
       <div className={showHideClassName + ' modal'}>
-        <section className='modal-main' style={styles.back}>
+        <section className='modal-main animated bounce delay-2s' style={styles.back}>
           {children}
           <button style={styles.close} className='close' onClick={handleClose}>
             X

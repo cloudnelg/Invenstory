@@ -7,6 +7,10 @@ var styles = {
   background: "url('https://wallpaperaccess.com/full/717368.jpg')",
   backgroundSize: '100%',
   borderRadius: '10px',
+  marginLeft: '25%',
+  marginTop: '10%',
+  zIndex: -1,
+  paddingTop: '5%',
   },
   upload: {
     marginLeft: '25%',

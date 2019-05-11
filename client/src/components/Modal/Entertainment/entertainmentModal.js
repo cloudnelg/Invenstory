@@ -9,7 +9,7 @@ const superagent = require('superagent');
 var styles = {
   close: {
     position: 'fixed',
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
     backgroundSize: '400%',
     borderRadius: '10px',
     border: "1px",
@@ -22,7 +22,7 @@ var styles = {
     padding: '5px 10px 5px 10px',
   },
   plus: {
-    background: 'linear-gradient(90deg, white, #ff3333, white, #ff3333)',
+    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
     backgroundSize: '400%',
     borderRadius: '10px',
     textAlign: 'center',
@@ -31,9 +31,9 @@ var styles = {
     cursor: "pointer",
     fontSize: "20px",
     fontWeight: 200,
-    marginLeft: '75%',
-    marginRight: '275px',
-
+    marginLeft: '40%',
+    marginRight: '40%',
+    
   },
   moda: {
     background: "url('https://wallpaperaccess.com/full/717368.jpg')",
@@ -96,6 +96,12 @@ class ModEnt extends React.Component {
   handleSubmitMessage(event) {
     event.preventDefault();
 
+    if (this.state.entertainment_name === ''){
+      return alert("Entertainment Name And Price Both Required To Submit!");
+    }if (this.state.price === '') {
+      return alert("Entertainment Name And Price Both Required To Submit!");
+    }
+
     const data = {
       entertainment_name: this.state.entertainment_name,
       price: this.state.price,
@@ -109,9 +115,9 @@ class ModEnt extends React.Component {
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err || !res.ok) {
-          console.log('Error');
+          alert('Error entertainment not added!');
         } else {
-          console.log('Success');
+          alert('New Entertainment Has Been Added! Refresh Page To Reveal New Entertainment Item!');
         }
       });
   }
@@ -127,7 +133,13 @@ class ModEnt extends React.Component {
   }
 
   submit = () => {
-    this.setState({ show: false });
+    if (this.state.entertainment_name === '') {
+      this.setState({ show: true });
+    }if(this.state.price === ''){
+      this.setState({ show: true });
+    }else {
+      this.setState({ show: false });
+    }
   }
 
   render() {

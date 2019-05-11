@@ -34,15 +34,34 @@
   transform: scale(1.5) perspective(1px);
 }
 
-.upload:hover {
-  animation: animate 8s linear infinite;
-  transform: scale(1.1) perspective(1px);
+.entList:hover {
+  border-radius: 50% 50% 0% 0% / 5% 5% 0% 0%;
+  box-shadow: 10px 10px rgba(0,0,0,.50);
 }
 
-.deleteImage:hover {
-  
-  transform: scale(1.4) perspective(1px);
+.appList:hover {
+  border-radius: 50% 50% 0% 0% / 5% 5% 0% 0%;
+  box-shadow: 10px 10px rgba(0,0,0,.50);
 }
+
+.furnList:hover {
+  border-radius: 50% 50% 0% 0% / 5% 5% 0% 0%;
+  box-shadow: 10px 10px rgba(0,0,0,.50);
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 2000ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
 
 
 
@@ -54,12 +73,4 @@
   100% {
     background-position: 300%;
   }
-}
-
-.aws {
-  margin-left: 25%;
-  margin-top: 10%;
-  z-index: -1;
-  background: white;
-  padding-top: 5%;
 }

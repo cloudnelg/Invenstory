@@ -9,7 +9,7 @@ const ApplianceSchema = new Schema({
   },
   price: {
     type: String,
-    required: false
+    required: true
   },
   comment: {
     type: String,

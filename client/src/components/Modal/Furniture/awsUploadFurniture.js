@@ -4,9 +4,13 @@ import Radium from 'radium';
 
 var styles = {
   moda: {
-  background: "url('http://4.bp.blogspot.com/-s1j9uEPgzAc/UFH3hpP95jI/AAAAAAAACHQ/kS_EsSywhio/s1600/Seamless+blue+black+marble+cloud+texture.jpg')",
+  background: "url('https://image.freepik.com/free-photo/light-brown-wooden-textured-background_53876-75016.jpg')",
   backgroundSize: '50%',
   borderRadius: '10px',
+  marginLeft: '25%',
+  marginTop: '10%',
+  zIndex: -1,
+  paddingTop: '5%',
   },
   upload: {
     marginLeft: '25%',
