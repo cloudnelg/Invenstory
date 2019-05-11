@@ -9,14 +9,14 @@ const superagent = require('superagent');
 var styles = {
   close: {
     position: 'fixed',
-    background: 'linear-gradient(90deg, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff, #8080ff, #0000ff)',
+    background: 'linear-gradient(90deg, #663300, #663300, #b35900, #e67300, #663300, #b35900, #e67300, #663300, #b35900)',
     backgroundSize: '400%',
     borderRadius: '10px',
     border: "1px",
     borderStyle: "solid",
     cursor: "pointer",
-    fontSize: "1rem",
-    fontWeight: 200,
+    fontSize: "25px",
+    fontWeight: 100,
     bottom: '101%',
     left: '96%',
     padding: '5px 10px 5px 10px',

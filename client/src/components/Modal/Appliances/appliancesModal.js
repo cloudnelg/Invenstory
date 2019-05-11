@@ -15,8 +15,8 @@ var styles = {
     border: "1px",
     borderStyle: "solid",
     cursor: "pointer",
-    fontSize: "1rem",
-    fontWeight: 200,
+    fontSize: "25px",
+    fontWeight: 100,
     bottom: '101%',
     left: '96%',
     padding: '5px 10px 5px 10px',
@@ -116,7 +116,7 @@ class Mod extends React.Component {
           if (err || !res.ok) {
             alert('Error Appliance Not Added!');
           } else {
-            alert('New Appliance Has Been Added! Refresh page to reveal new Appliance!');
+            alert('New Appliance Has Been Added! Refresh Page To Reveal New Appliance!');
           }
         });
   }

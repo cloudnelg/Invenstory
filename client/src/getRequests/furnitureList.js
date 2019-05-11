@@ -7,7 +7,7 @@ var styles = {
     textAlign: 'center',
   },
   border: {
-    border: 'solid',
+    border: 'groove 10px',
   }
 }
 
