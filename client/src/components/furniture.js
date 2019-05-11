@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
-import Mod from './Modal/modal';
+import ModFurn from './Modal/Furniture/furnitureModal';
+import FurnitureList from '../getRequests/furnitureList';
 
 var styles = {
   base: {
@@ -14,7 +15,13 @@ var styles = {
     marginRight: '68.5%',
   },
   list: {
-    marginLeft: '15%',
+    marginLeft: '25%',
+    marginRight: '25%',
+    background: 'url("https://wallpapermemory.com/uploads/357/floor-background-hd-1680x1050-83195.jpg")',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    color: 'white',
+    boxShadow: '20px 20px rgba(0,0,0,.25)',
   }
 };
 
@@ -27,9 +34,7 @@ class Furn extends React.Component {
         isHidden: true
       }
     }
-    hi () {
-      alert('hi')
-    }
+
     toggleHidden () {
       this.setState({
         isHidden: !this.state.isHidden
@@ -50,11 +55,9 @@ class Furn extends React.Component {
   }
   
 const List = () => (
-  <div className='container' style={styles.list}>
-    <Mod />
-    <p>Sofa</p>
-    <p>Bed</p>
-    <p>Chair</p>
+  <div className='container furnList' style={styles.list}>
+    <ModFurn />
+    <FurnitureList />
   </div>
   )
   

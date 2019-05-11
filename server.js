@@ -1,66 +1,33 @@
-const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
+const express = require("express");
 const mongoose = require('mongoose');
-const flash = require('connect-flash');
-const session = require('express-session');
-const passport = require('passport');
 const path = require("path");
+const PORT = process.env.PORT || 3001;
 const app = express();
-const AWS = require('aws-sdk');
-const upload = require('./fileUpload');
 
 
-//passport config
-require('./config/passport')(passport);
+
+//Bodyparser Middleware
+app.use(express.json());
 
 
-//DB config
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/appliances", { useNewUrlParser: true })
-    .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log(err));
-
-// EJS
-app.use(expressLayouts);
-app.set('view engine', 'ejs');
-
-//Bodyparser
-app.use(express.urlencoded({ extended: false }));
-
-// express session 
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true,
-}));
-
-// passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Connect flash
-app.use(flash());
-
-// // Send every request to the React app
-// // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+//Connecting to Mongo using mongoose
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/appliances");
 
 
-//Global Vars
-app.use((req, res, next) => {
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    next();
-});
 
+
+  // Use Routes
+app.use('/api/appliances', require('./routes/api/appliances'));
+app.use('/api/furniture', require('./routes/api/furniture'));
+app.use('/api/entertainment', require('./routes/api/entertainment'));
+
+
+//....................................................................................................................AWS
+const upload = require('./fileUploadAppliances');
 const singleUpload = upload.single('image')
 
-// Define POST route
-app.post('/image-upload', function(req, res) {
+app.post('/image-upload-appliance', function(req, res) {
   singleUpload(req, res, function(err, some) {
-    console.log('in post image', err)
     if (err) {
       return res.status(422).send({errors: [{title: 'Image Upload Error', detail: err.message}] });
     }
@@ -69,17 +36,50 @@ app.post('/image-upload', function(req, res) {
   });
 })
 
+const upload2 = require('./fileUploadFurniture');
+const singleUpload2 = upload2.single('image')
 
-// Routes 
-app.use('/api/appliances', require('./routes/api/appliances'));
-app.use('/api/furniture', require('./routes/api/furniture'));
-app.use('/api/entertainment', require('./routes/api/entertainment'));
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.post('/image-upload-furniture', function(req, res) {
+  singleUpload2(req, res, function(err, some) {
+    if (err) {
+      return res.status(422).send({errors: [{title: 'Image Upload Error', detail: err.message}] });
+    }
+
+    return res.json({'imageUrl': req.file.location});
+  });
+})
+
+const upload3 = require('./fileUploadEntertainment');
+const singleUpload3 = upload3.single('image')
+
+app.post('/image-upload-entertainment', function(req, res) {
+  singleUpload3(req, res, function(err, some) {
+    if (err) {
+      return res.status(422).send({errors: [{title: 'Image Upload Error', detail: err.message}] });
+    }
+
+    return res.json({'imageUrl': req.file.location});
+  });
+})
+//......................................................................................................................AWS End
 
 
-const PORT = process.env.PORT || 5000; 
 
-app.listen(PORT, console.log (`Server started on port ${PORT}`));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
+require('dotenv').config();
+
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
 

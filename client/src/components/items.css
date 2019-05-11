@@ -1,4 +1,6 @@
 body {
     background: url('https://i.redd.it/5xxx916nf2s01.jpg');
-    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
