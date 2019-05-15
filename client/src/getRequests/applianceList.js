@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ApplianceDelete from '../deleteRequests/applianceList';
 import Radium from 'radium';
 
 var styles = {
@@ -31,7 +32,10 @@ export default class ApplianceList extends React.Component {
           {appliances.appliance_name}<br />
           Price: {appliances.price}<br />
           Comment: {appliances.comment}
+          <ApplianceDelete />
+          <img src={appliances.img} />
         </p>)}
+        
 
 
     </div>);

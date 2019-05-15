@@ -67,7 +67,6 @@ class Appliance extends React.Component {
         <div>
           <Mod />
         <ApplianceList />
-        
         </div>
     </div>
   )

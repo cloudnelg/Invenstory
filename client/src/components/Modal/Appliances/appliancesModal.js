@@ -2,6 +2,7 @@ import React from "react";
 import Radium from 'radium';
 import '../modal.css';
 import FileUploadApp from './awsUploadAppliances';
+import ApplianceDelete from '../../../deleteRequests/applianceList'
 const superagent = require('superagent')
 
 
@@ -104,7 +105,8 @@ class Mod extends React.Component {
       const data = {
         appliance_name: this.state.appliance_name,
         price: this.state.price,
-        comment: this.state.comment
+        comment: this.state.comment,
+        img: this.state.img
       };
       console.log(this.state)
 
@@ -141,6 +143,10 @@ class Mod extends React.Component {
       }
     }
 
+    onSuccessfulUpload = (imgUrl) => {
+      this.setState({ imgUrl })
+    }
+
     
       
     render() {
@@ -148,7 +154,8 @@ class Mod extends React.Component {
         <main>
           <Modal closeTimeoutMS={200} show={this.state.show} handleClose={this.hideModal} >
           <div style={styles.img}>
-          <FileUploadApp />
+          <FileUploadApp onSuccessfulUpload={this.onSuccessfulUpload}/>
+          {this.state && this.state.imgUrl && <img src={this.state.imgUrl} />}
           </div>
           <form onSubmit={this.handleSubmitMessage}>
             <div style={styles.moda}>
@@ -171,6 +178,7 @@ class Mod extends React.Component {
             </form>
           </Modal>
           <p className='plus' style={styles.plus} type='button' onClick={this.showModal}>+</p>
+          <ApplianceDelete />
         </main>
       )
     }

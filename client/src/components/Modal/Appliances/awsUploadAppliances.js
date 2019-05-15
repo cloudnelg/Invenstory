@@ -40,7 +40,10 @@ class FileUploadApp extends Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      alert('Photo Uploaded!')
+      if (response.data && response.data.imageUrl) {
+        this.props.onSuccessfulUpload(response.data.imageUrl)
+        console.log(this.state.img)
+      }
     }).catch(error => {
       alert('Photo Failed To Upload...')
     });
@@ -48,12 +51,13 @@ class FileUploadApp extends Component {
 
   handleFileUpload = (event) => {
     this.setState({file: event.target.files});
-
+    console.log(this.state.img)
   }
 
   render () {
     return (
     <div className='container' style={styles.moda}>
+      {this.state && this.state.img && <img src={this.state.img} />}
       <form  style={styles.upload} onSubmit={this.submitFile}>
         <input  label='upload file' type='file' onChange={this.handleFileUpload} />
         <button  type='submit' onClick={this.submitFile}>Send</button>
