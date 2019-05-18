@@ -7,7 +7,7 @@ const { ensureAuthenticated } = require('../config/auth')
 // router.get('/', (req, res) => res.render('welcome'));
 
 //Dashboard
-router.get('/',  ensureAuthenticated, (req, res) => 
-res.sendFile(path.join(__dirname,'../client/public/index.html')));
+router.get('/app',  ensureAuthenticated, (req, res) => 
+res.sendFile(path.join(__dirname,'../login.html')));
 
 module.exports = router;

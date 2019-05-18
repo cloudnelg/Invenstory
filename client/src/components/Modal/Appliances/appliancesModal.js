@@ -74,7 +74,7 @@ class Mod extends React.Component {
     this.state = {
       appliance_name: '',
       price: '',
-      comment: ''
+      comment: '',
     };
     this.handleMessageInput = this.handleMessageInput.bind(this);
     this.handleMessageInput2 = this.handleMessageInput2.bind(this);
@@ -93,6 +93,10 @@ class Mod extends React.Component {
     this.setState({ comment: e.target.value });
   }
 
+  onSuccessfulUpload = (imgUrl) => {
+    this.setState({ imgUrl })
+  }
+
   handleSubmitMessage(event) {
       event.preventDefault();
 
@@ -104,9 +108,12 @@ class Mod extends React.Component {
       const data = {
         appliance_name: this.state.appliance_name,
         price: this.state.price,
-        comment: this.state.comment
+        comment: this.state.comment,
+        imgURL: this.state.imgUrl
       };
       console.log(this.state)
+      console.log(this.state.imgUrl)
+      console.log(data.imgURL)
 
       superagent
         .post('/api/appliances')
@@ -140,15 +147,14 @@ class Mod extends React.Component {
         this.setState({ show: false });
       }
     }
-
-    
       
     render() {
       return (
         <main>
           <Modal closeTimeoutMS={200} show={this.state.show} handleClose={this.hideModal} >
           <div style={styles.img}>
-          <FileUploadApp />
+          <FileUploadApp onSuccessfulUpload={this.onSuccessfulUpload}/>
+          
           </div>
           <form onSubmit={this.handleSubmitMessage}>
             <div style={styles.moda}>

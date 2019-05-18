@@ -28,10 +28,6 @@ var styles = {
 
 };
 
-
-
-
-
 class Appliance extends React.Component {
     constructor () {
       super()
@@ -44,10 +40,6 @@ class Appliance extends React.Component {
         isHidden: !this.state.isHidden
       })
     }
-
-    
-
-    
     render () {
       return (
         <div>
@@ -61,16 +53,13 @@ class Appliance extends React.Component {
     }
   }
   
-  
   const List = () => (
   <div className='container appList' style={styles.list}>
         <div>
           <Mod />
         <ApplianceList />
-        
         </div>
     </div>
   )
   
-
   export default Radium(Appliance);
