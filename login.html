@@ -33,10 +33,10 @@
 
                 <!--Login Modal Form-->
                 <div class="modal-body">
-                    <form role="form">
+                    <form action="/users/login" method="POST">
                         <div class="form-group">
-                            <input type="name" class="form-control" placeholder="Email">
-                            <input type="name" class="form-control" placeholder="Password">
+                            <input type="name" name="email" class="form-control" placeholder="Email">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
 
                     </form>
@@ -83,35 +83,34 @@
 
             <hr class="my-4">
 
-            <button type="button" class="btn btn-dark ml-auto" data-toggle="modal" data-target="#createWindow">Create
-                Account</button>
-            <!--Create Modal-->
-            <div class="modal fade  animated slideInDown" id="createWindow">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!--Create Modal Header-->
-                        <div class="modal-header">Create a new Profile
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!--Create Modal Form-->
-                        <div class="modal-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <input type="name" class="form-control" placeholder="User name">
-                                    <input type="name" class="form-control" placeholder="Email">
-                                    <input type="name" class="form-control" placeholder="Password">
-                                    <input type="name" class="form-control" placeholder="Confirm Password">
-                                </div>
-
-                            </form>
-                        </div>
-
-                        <!--Create Modal Login Button-->
-                        <div class="modal-footer">
-                            <button class="btn btn-dark btn-block" id="user-join-submit">Submit</button>
-                        </div>
+            <button type="button" class="btn btn-dark ml-auto" data-toggle="modal"
+                data-target="#createWindow">Create Account</button>
+                <!--Create Modal-->
+    <div class="modal fade  animated slideInDown" id="createWindow">
+            <div class="modal-dialog">
+                <div class="modal-content">
+    
+                    <!--Create Modal Header-->
+                    <div class="modal-header">Create a new Profile
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+    
+                    <!--Create Modal Form-->
+                    <div class="modal-body">
+                        <form action="/users/register" method="POST">
+                            <div class="form-group">
+                                <input type="name" name="name" class="form-control" placeholder="User name">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                            </div>
+    
+                        </form>
+                    </div>
+    
+                    <!--Create Modal Login Button-->
+                    <div class="modal-footer">
+                        <button class="btn btn-dark btn-block" id="user-join-submit">Submit</button>
                     </div>
                 </div>
 

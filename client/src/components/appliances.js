@@ -1,7 +1,8 @@
 import React from 'react';
 import Radium from 'radium';
-import Mod from './Modal/modal';
+import Mod from './Modal/Appliances/appliancesModal';
 import './items.css'
+import ApplianceList from "../getRequests/applianceList";
 
 var styles = {
   base: {
@@ -15,14 +16,17 @@ var styles = {
   },
 
   list: {
-    marginLeft: '15%',
+    paddingTop: '1%',
+    marginLeft: '25%',
+    marginRight: '25%',
+    color: 'white',
+    background: 'url("https://wallpapermemory.com/uploads/357/floor-background-hd-1680x1050-83195.jpg")',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    boxShadow: '20px 20px rgba(0,0,0,.25)',
   }
 
 };
-
-
-
-
 
 class Appliance extends React.Component {
     constructor () {
@@ -36,10 +40,6 @@ class Appliance extends React.Component {
         isHidden: !this.state.isHidden
       })
     }
-
-    
-
-    
     render () {
       return (
         <div>
@@ -53,16 +53,13 @@ class Appliance extends React.Component {
     }
   }
   
-  
   const List = () => (
-  <div className='container' style={styles.list}>
-  
+  <div className='container appList' style={styles.list}>
         <div>
           <Mod />
-        <p>Hello</p>
+        <ApplianceList />
         </div>
     </div>
   )
   
-
   export default Radium(Appliance);

@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
   const newAppliance = new Appliance({
     appliance_name: req.body.appliance_name,
     price: req.body.price,
-    comment: req.body.comment
+    comment: req.body.comment,
+    imgURL: req.body.imgURL
   });
 
   newAppliance.save().then(Appliance => res.json(Appliance));

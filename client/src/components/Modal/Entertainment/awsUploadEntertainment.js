@@ -4,14 +4,21 @@ import Radium from 'radium';
 
 var styles = {
   moda: {
-  background: "url('https://www.thepaintstoreonline.com/wp-content/uploads/2015/07/sanderson_dandelion_dopwda101_red.jpg')",
-  backgroundSize: '150%',
+  background: "url('https://wallpaperaccess.com/full/717368.jpg')",
+  backgroundSize: '100%',
   borderRadius: '10px',
+  marginLeft: '25%',
+  marginTop: '10%',
+  zIndex: -1,
+  paddingTop: '5%',
+  },
+  upload: {
+    marginLeft: '25%',
   }
 };
  
 
-class FileUpload extends Component {
+class FileUploadEnt extends Component {
   constructor () {
     super();
     this.state = {
@@ -22,32 +29,36 @@ class FileUpload extends Component {
   submitFile = (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('file', this.state.file[0]);
-    axios.post(`/image-upload`, {image: this.state.file[0] }, {
+    // debugger;
+    // console.log(new Blob(this.state.file[0]));
+    console.log(this.state.file);
+    formData.append('image', this.state.file[0]);
+    axios.post(`/image-upload-entertainment`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
-      // handle your response;
+      alert('Photo Uploaded!')
     }).catch(error => {
-      // handle your error
+      alert('Photo Failed To Upload...')
     });
   }
 
   handleFileUpload = (event) => {
     this.setState({file: event.target.files});
+
   }
 
   render () {
     return (
     <div className='container aws' style={styles.moda}>
-      <form  onSubmit={this.submitFile}>
+      <form style={styles.upload} onSubmit={this.submitFile}>
         <input  label='upload file' type='file' onChange={this.handleFileUpload} />
-        <button  type='submit'>Send</button>
+        <button  type='submit' onClick={this.submitFile}>Send</button>
       </form>
       </div>
     );
   }
 }
 
-export default Radium(FileUpload);
+export default Radium(FileUploadEnt); 
