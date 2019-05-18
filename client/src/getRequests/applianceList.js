@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import ApplianceDelete from '../deleteRequests/applianceList';
-import Radium from 'radium';
 
 var styles = {
   center: {
@@ -9,6 +7,11 @@ var styles = {
   },
   border: {
     border: 'groove 10px',
+  },
+  image: {
+    width: '50px',
+    height: '50px',
+    marginLeft: '350px'
   }
 }
 
@@ -23,17 +26,27 @@ export default class ApplianceList extends React.Component {
         this.setState({ appliances });
       });
   }
+
+  handleClick(applianceId)  {
+  
+
+    axios.delete("/api/appliances/" + applianceId).then((response) => {
+      alert("Item deleted refresh to remove")
+    }).then((result) => {
+      // do what you want with the response here
+    });
+  }
+
   render() {
     return (<div style={styles.center}>
 
       {this.state.appliances.map(appliances =>
-
         <p style={styles.border}>
           {appliances.appliance_name}<br />
           Price: {appliances.price}<br />
-          Comment: {appliances.comment}
-          <ApplianceDelete />
-          <img src={appliances.img} />
+          Comment: {appliances.comment}<br />
+          <img style={styles.image} src={appliances.imgURL}></img><br />
+          <button onClick={() => { this.handleClick(appliances._id) }} className="delete-btn">Delete</button>
         </p>)}
         
 

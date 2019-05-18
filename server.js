@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const path = require("path");
 const PORT = process.env.PORT || 3001; 
 const app = express();
+const { ensureAuthenticated } = require('./config/auth');
+
 
 
 
@@ -97,9 +99,9 @@ app.post('/image-upload-entertainment', function(req, res) {
 
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+// if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-}
+// }
 
 //passport config
 require('./config/passport')(passport);
@@ -110,9 +112,13 @@ require('dotenv').config();
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("/login", function(req, res) {
+  res.sendFile(path.join(__dirname, "./login.html"));
 });
+
+app.get('/app', ensureAuthenticated, function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+})
 
 app.listen(PORT, console.log (`Server started on port ${PORT}`));
 

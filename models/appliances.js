@@ -15,7 +15,7 @@ const ApplianceSchema = new Schema({
     type: String,
     required: false
   },
-  imgUrl: {
+  imgURL: {
     type: String,
     required: false
   },
