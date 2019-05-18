@@ -28,12 +28,9 @@ export default class ApplianceList extends React.Component {
   }
 
   handleClick(applianceId)  {
-  
-
-    axios.delete("/api/appliances/" + applianceId).then((response) => {
-      alert("Item deleted refresh to remove")
+  axios.delete("/api/appliances/" + applianceId).then((response) => {
     }).then((result) => {
-      // do what you want with the response here
+      alert("Item deleted refresh to remove")
     });
   }
 

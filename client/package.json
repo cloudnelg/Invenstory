@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "animate.css": "^3.7.0",
     "aws-sdk": "^2.449.0",
     "axios": "^0.18.0",
     "bluebird": "^3.5.4",

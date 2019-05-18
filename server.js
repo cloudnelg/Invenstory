@@ -109,12 +109,14 @@ require('./config/passport')(passport);
 //dotenv config
 require('dotenv').config();
 
-
+console.log(path.join(__dirname, "./login.html"))
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/login", function(req, res) {
+  
   res.sendFile(path.join(__dirname, "./login.html"));
 });
+
 
 app.get('/app', ensureAuthenticated, function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
