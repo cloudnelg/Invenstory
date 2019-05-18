@@ -3,11 +3,13 @@ const path = require("path")
 
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth')
+
 // Welcome Page
-// router.get('/', (req, res) => res.render('welcome'));
+router.get('/', (req, res) => res.render('welcome'));
 
 //Dashboard
 router.get('/app',  ensureAuthenticated, (req, res) => 
 res.sendFile(path.join(__dirname,'../login.html')));
+
 
 module.exports = router;
