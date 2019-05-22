@@ -34,8 +34,6 @@ class FileUploadApp extends Component {
     // debugger;
     // console.log(new Blob(this.state.file[0]));
     console.log(this.state.files[0]);
-    console.log(this.state.files[1]);
-    console.log(this.state.files[2]);
     formData.append('image', this.state.files[0]);
     axios.post(`/image-upload-appliance`, formData, {
       headers: {

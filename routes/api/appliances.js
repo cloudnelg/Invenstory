@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const User = '../../models/User'
 
 
 // Item Model
@@ -8,10 +9,21 @@ const Appliance = require('../../models/appliances');
 // @route   GET api/appliances
 // @desc    Get All appliances
 // @access  Public
+// router.get('/', (req, res) => {
+//   Appliance.findOne({_id: })
+//     .sort({ date: -1 })
+//     .then(appliances => res.json(appliances));
+// });
+
 router.get('/', (req, res) => {
-  Appliance.find()
+  // console.log('request', req)
+  User.findOne({_id: users._id })
     .sort({ date: -1 })
-    .then(appliances => res.json(appliances));
+    .then(appliances => {
+      console.log("Appliances", appliances)
+      res.json(appliances)
+    });
+    
 });
 
 // @route   POST api/appliances
