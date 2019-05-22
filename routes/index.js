@@ -15,7 +15,7 @@ router.get('/', (req, res) => res.render('welcome'));
 // });
 
 router.get('/register', (req, res) =>
-    res.render(register.ejs));
+    res.render('register'));
 
 
 module.exports = router;
