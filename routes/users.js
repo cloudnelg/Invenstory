@@ -7,7 +7,7 @@ const path = require('path');
 
 
 //login page
-// router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login'));
 
 //register handle
 

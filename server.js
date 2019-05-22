@@ -113,7 +113,7 @@ require('dotenv').config();
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/login", function(req, res) {
-  res.sendFile(path.join(__dirname, "./login.html"));
+  res.sendFile(path.join(__dirname, "./views/welcome.ejs"));
 });
 
 app.get('/app', ensureAuthenticated, function (req, res) {
