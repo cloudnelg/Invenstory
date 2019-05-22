@@ -96,7 +96,7 @@ router.post('/register', (req, res) => {
 // Login Handle
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/app',
+        successRedirect: '/',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
@@ -111,8 +111,8 @@ router.get('/logout', (req, res) => {
         if (err) {
             return next(err);
         }
-        res.json({user: null});
-    });
-
+       console.log('logged out sesh')
+        res.redirect('/users/login');
+    }); 
 });
 module.exports = router;
