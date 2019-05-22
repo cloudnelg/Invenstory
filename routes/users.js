@@ -111,9 +111,8 @@ router.get('/logout', (req, res) => {
         if (err) {
             return next(err);
         }
-        console.log('logged out sesh')
+       console.log('logged out sesh')
         res.redirect('/users/login');
     }); 
-
 });
 module.exports = router;

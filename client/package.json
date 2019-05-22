@@ -2,7 +2,7 @@
   "name": "mern",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3006",
   "dependencies": {
     "aws-sdk": "^2.449.0",
     "axios": "^0.18.0",
