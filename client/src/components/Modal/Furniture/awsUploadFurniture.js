@@ -22,7 +22,7 @@ class FileUpload extends Component {
   constructor () {
     super();
     this.state = {
-      file: null
+      files: []
     };
   }
 
@@ -32,28 +32,31 @@ class FileUpload extends Component {
     // debugger;
     // console.log(new Blob(this.state.file[0]));
     console.log(this.state.file);
-    formData.append('image', this.state.file[0]);
+    formData.append('image', this.state.files[0]);
     axios.post(`/image-upload-furniture`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
       alert('Photo Uploaded!')
+      if (response.data && response.data.imageUrl) {
+        this.props.onSuccessfulUpload(response.data.imageUrl)
+        console.log(response.data)
+      }
     }).catch(error => {
       alert('Photo Failed To Upload...')
     });
   }
 
-  handleFileUpload = (event) => {
-    this.setState({file: event.target.files});
-
+  fileSelectedHandler = (e) => {
+    this.setState({ files: e.target.files })
   }
 
   render () {
     return (
     <div className='container aws' style={styles.moda}>
       <form style={styles.upload} onSubmit={this.submitFile}>
-        <input  label='upload file' type='file' onChange={this.handleFileUpload} />
+        <input  label='upload file' type='file' onChange={this.fileSelectedHandler} />
         <button  type='submit' onClick={this.submitFile}>Send</button>
       </form>
       </div>

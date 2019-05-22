@@ -7,7 +7,7 @@ const path = require('path');
 
 
 //login page
-// router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login'));
 
 //register handle
 
@@ -105,8 +105,14 @@ router.post('/login', (req, res, next) => {
 //Logout Handle
 
 router.get('/logout', (req, res) => {
+    console.log('logging out from server')
     req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login');
+    req.session.save((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/login');
+    });
+
 });
 module.exports = router;

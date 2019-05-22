@@ -21,7 +21,6 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "animate.css": "^3.7.0",
     "aws-sdk": "^2.449.0",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
@@ -43,6 +42,7 @@
     "passport-local": "^1.0.0",
     "radium": "^0.25.1",
     "react-images-upload": "^1.2.6",
+    "react-router": "^5.0.0",
     "superagent": "^5.0.5"
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import ModEnt from './Modal/Entertainment/entertainmentModal';
 import './items.css'
-import EntertainmentList from '../getRequests/entertainmentList';
+import EntertainmentList from '../apiRequests/entertainmentList';
 
 
 var styles = {

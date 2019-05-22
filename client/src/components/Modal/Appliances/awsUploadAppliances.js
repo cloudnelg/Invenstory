@@ -42,6 +42,7 @@ class FileUploadApp extends Component {
         'Content-Type': 'multipart/form-data'
       }
     }).then(response => {
+      alert('Photo Uploaded!')
       if (response.data && response.data.imageUrl) {
         this.props.onSuccessfulUpload(response.data.imageUrl)
         console.log(response.data)

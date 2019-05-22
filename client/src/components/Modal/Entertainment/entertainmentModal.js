@@ -93,6 +93,10 @@ class ModEnt extends React.Component {
     this.setState({ comment: e.target.value });
   }
 
+  onSuccessfulUpload = (imgUrl) => {
+    this.setState({ imgUrl })
+  }
+
   handleSubmitMessage(event) {
     event.preventDefault();
 
@@ -105,7 +109,8 @@ class ModEnt extends React.Component {
     const data = {
       entertainment_name: this.state.entertainment_name,
       price: this.state.price,
-      comment: this.state.comment
+      comment: this.state.comment,
+      imgURL: this.state.imgUrl
     };
     console.log(this.state)
 
@@ -147,7 +152,7 @@ class ModEnt extends React.Component {
       <main>
         <Modal show={this.state.show} handleClose={this.hideModal} >
           <div style={styles.img}>
-            <FileUploadEnt />
+            <FileUploadEnt onSuccessfulUpload={this.onSuccessfulUpload}/>
           </div>
           <form onSubmit={this.handleSubmitMessage}>
             <div style={styles.moda}>

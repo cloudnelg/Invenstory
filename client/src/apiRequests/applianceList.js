@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Edit from '../apiRequests/updateComments/appliances'
 
 var styles = {
   center: {
@@ -27,13 +28,10 @@ export default class ApplianceList extends React.Component {
       });
   }
 
-  handleClick(applianceId)  {
-  
-
+  handleClick(applianceId) {
     axios.delete("/api/appliances/" + applianceId).then((response) => {
-      alert("Item deleted refresh to remove")
     }).then((result) => {
-      // do what you want with the response here
+      alert("Item deleted refresh to remove")
     });
   }
 
@@ -47,8 +45,10 @@ export default class ApplianceList extends React.Component {
           Comment: {appliances.comment}<br />
           <img style={styles.image} src={appliances.imgURL}></img><br />
           <button onClick={() => { this.handleClick(appliances._id) }} className="delete-btn">Delete</button>
+          <Edit />
+          
         </p>)}
-        
+
 
 
     </div>);
