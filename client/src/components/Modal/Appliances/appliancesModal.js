@@ -97,7 +97,7 @@ class Mod extends React.Component {
     this.setState({ imgUrl })
   }
 
-  handleSubmitMessage(event) {
+  handleSubmitMessage = event => {
       event.preventDefault();
 
       if (this.state.appliance_name === ''){
@@ -180,7 +180,7 @@ class Mod extends React.Component {
         </main>
       )
     }
-  }
+}
   
   const Modal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? 'modal display-block' : 'modal display-none';

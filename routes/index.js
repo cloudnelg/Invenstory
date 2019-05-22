@@ -9,7 +9,10 @@ router.get('/', (req, res) => res.render('welcome'));
 
 //Dashboard
 router.get('/app',  ensureAuthenticated, (req, res) => 
-res.sendFile(path.join(__dirname,'../login.html')));
+res.sendFile(path.join(__dirname,'../client/build/index.html')));
+
+router.get('/register', (req, res) => 
+res.render(path.join(__dirname,'../views/register.ejs')));
 
 
 module.exports = router;

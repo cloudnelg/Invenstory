@@ -7,7 +7,12 @@ var styles = {
     },
     border: {
         border: 'groove 10px',
-    }
+    },
+    image: {
+        width: '50px',
+        height: '50px',
+        marginLeft: '350px'
+      }
 }
 
 export default class EntertainmentList extends React.Component {
@@ -21,13 +26,22 @@ export default class EntertainmentList extends React.Component {
                 this.setState({ entertainment });
             });
     }
+
+    handleClick(entertainmentId) {
+        axios.delete("/api/entertainment/" + entertainmentId).then((response) => {
+        }).then((result) => {
+            alert("Item deleted refresh to remove")
+        });
+    }
     render() {
         return (<div style={styles.center}>
             {this.state.entertainment.map(entertainment =>
                 <p style={styles.border}>
                     Entertainment Name: {entertainment.entertainment_name}<br />
                     Price: {entertainment.price}<br />
-                    Comment: {entertainment.comment}
+                    Comment: {entertainment.comment}<br />
+                    <img style={styles.image} src={entertainment.imgURL}></img><br />
+                    <button onClick={() => { this.handleClick(entertainment._id) }} className="delete-btn">Delete</button>
                 </p>)}
         </div>);
     }

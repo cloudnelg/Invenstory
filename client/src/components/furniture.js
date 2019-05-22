@@ -1,7 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import ModFurn from './Modal/Furniture/furnitureModal';
-import FurnitureList from '../getRequests/furnitureList';
+import FurnitureList from '../apiRequests/furnitureList';
 
 var styles = {
   base: {

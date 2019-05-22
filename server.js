@@ -109,18 +109,15 @@ require('./config/passport')(passport);
 //dotenv config
 require('dotenv').config();
 
-console.log(path.join(__dirname, "./login.html"))
+// console.log(path.join(__dirname, "./views/welcome.ejs"))
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/login", function(req, res) {
-  
-  res.sendFile(path.join(__dirname, "./login.html"));
+  res.render(path.join(__dirname, "./views/welcome.ejs"));
 });
-
-
-app.get('/app', ensureAuthenticated, function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-})
+app.get("/register", function(req, res) {
+  res.render(path.join(__dirname, "./views/register.ejs"));
+});
 
 app.listen(PORT, console.log (`Server started on port ${PORT}`));
 

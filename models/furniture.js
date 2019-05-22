@@ -15,6 +15,10 @@ const FurnitureSchema = new Schema({
     type: String,
     required: false
   },
+  imgURL: {
+    type: String,
+    required: false
+  },
   date: {
     type: Date,
     default: Date.now

@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import Mod from './Modal/Appliances/appliancesModal';
 import './items.css'
-import ApplianceList from "../getRequests/applianceList";
+import ApplianceList from "../apiRequests/applianceList";
 
 var styles = {
   base: {
