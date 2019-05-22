@@ -6,7 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const path = require("path");
-const PORT = process.env.PORT || 3006; 
+const PORT = process.env.PORT || 3001; 
 const app = express();
 const { ensureAuthenticated } = require('./config/auth');
 
@@ -56,18 +56,6 @@ app.use('/api/entertainment', require('./routes/api/entertainment'));
 // app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
-
-//Passport Authenticating users
-passport.serializeUser(function(user, cb) {
-  cb(null, user.id);
-});
-
-passport.deserializeUser(function(id, cb) {
-  console.log(id, 'passport')
-  User.findById(id, function(err, user) {
-    cb(err, user);
-  });
-});
 
 //....................................................................................................................AWS
 const upload = require('./fileUploadAppliances');
