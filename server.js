@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
@@ -52,7 +53,7 @@ app.use((req, res, next) => {
 app.use('/api/appliances', require('./routes/api/appliances'));
 app.use('/api/furniture', require('./routes/api/furniture'));
 app.use('/api/entertainment', require('./routes/api/entertainment'));
-app.use('/', require('./routes/index'));
+// app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
 //....................................................................................................................AWS
@@ -100,24 +101,24 @@ app.post('/image-upload-entertainment', function(req, res) {
 
 // Serve up static assets (usually on heroku)
 // if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
 // }
 
 //passport config
 require('./config/passport')(passport);
 
 //dotenv config
-require('dotenv').config();
 
 // console.log(path.join(__dirname, "./views/welcome.ejs"))
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("/login", function(req, res) {
-  res.render(path.join(__dirname, "./views/welcome.ejs"));
-});
-app.get("/register", function(req, res) {
+// app.use("/login", function(req, res) {
+//   res.render(path.join(__dirname, "./views/welcome.ejs"));
+// });
+app.use("/register", function(req, res) {
+  console.log('in register route')
   res.render(path.join(__dirname, "./views/register.ejs"));
 });
+app.use('/', ensureAuthenticated, express.static("./client/build"));
 
 app.listen(PORT, console.log (`Server started on port ${PORT}`));
 
