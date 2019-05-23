@@ -17,14 +17,15 @@ var styles = {
   },
 
   list: {
+    paddingTop: '1%',
     marginLeft: '25%',
     marginRight: '25%',
+    color: 'white',
     background: 'url("https://wallpapermemory.com/uploads/357/floor-background-hd-1680x1050-83195.jpg")',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
-    color: 'white',
     boxShadow: '20px 20px rgba(0,0,0,.25)',
-  },
+  }
 
 
 };

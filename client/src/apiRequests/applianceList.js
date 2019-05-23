@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Edit from '../apiRequests/updateComments/appliances'
 
 var styles = {
   center: {
@@ -12,7 +11,7 @@ var styles = {
   image: {
     width: '50px',
     height: '50px',
-    marginLeft: '350px'
+    marginLeft: '200px',
   }
 }
 
@@ -45,7 +44,7 @@ export default class ApplianceList extends React.Component {
           Comment: {appliances.comment}<br />
           <img style={styles.image} src={appliances.imgURL}></img><br />
           <button onClick={() => { this.handleClick(appliances._id) }} className="delete-btn">Delete</button>
-          <Edit />
+          
           
         </p>)}
 

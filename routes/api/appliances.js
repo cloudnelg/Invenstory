@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
 
 // router.get('/', (req, res) => {
 //   // console.log('request', req)
+//   User.find()
 //   User.findOne({_id: users._id })
 //     .sort({ date: -1 })
 //     .then(appliances => {

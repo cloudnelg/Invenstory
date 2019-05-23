@@ -24,7 +24,7 @@
   display: none;
 }
 
-.close:hover {
+.close {
   animation: animate 8s linear infinite; 
   transform: scale(1.5) perspective(1px);
 }
@@ -63,8 +63,29 @@
 }
 
 
+.delete-btn {
+  font-size: 15px;
+  color: black;
+  margin-right: 45%;
+  margin-left: 45%;
+  background: grey;
+  cursor: pointer;
+  text-align: center;
+}
 
 
+.logOut {
+  font-size: 20px;
+  color: black;
+  background: grey;
+  cursor: pointer;
+  margin-left: 92%;
+  margin-right: 1%;
+  border: solid 1px;
+  border-radius: 50% 50% 0% 0% / 5% 5% 0% 0%;
+  text-align: center;
+
+}
 
 @keyframes animate {
   0% {
@@ -73,4 +94,46 @@
   100% {
     background-position: 300%;
   }
+}
+
+@media only screen and (max-width: 870px) {
+
+  .appList {
+    width: 600px;
+  }
+  .furnList {
+    width: 600px;
+  }
+  .entList {
+    width: 600px;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+
+  .appList {
+    width: 500px;
+  }
+  .furnList {
+    width: 500px;
+  }
+  .entList {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  .appList {
+    width: 350px;
+  }
+  .furnList {
+    width: 350px;
+  }
+  .entList {
+    width: 350px;
+  }
+
+
 }
