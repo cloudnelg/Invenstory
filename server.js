@@ -6,7 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const path = require("path");
-const PORT = process.env.PORT || 3002; 
+const PORT = process.env.PORT || 3001; 
 const app = express();
 const { ensureAuthenticated } = require('./config/auth');
 
@@ -55,9 +55,6 @@ app.use('/api/furniture', require('./routes/api/furniture'));
 app.use('/api/entertainment', require('./routes/api/entertainment'));
 // app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-
-
-
 
 //....................................................................................................................AWS
 const upload = require('./fileUploadAppliances');
