@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
   const newFurniture = new Furniture({
     furniture_name: req.body.furniture_name,
     price: req.body.price,
-    comment: req.body.comment
+    comment: req.body.comment,
+    imgURL: req.body.imgURL
   });
 
   newFurniture.save().then(Furniture => res.json(Furniture));
