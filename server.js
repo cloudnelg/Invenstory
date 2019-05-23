@@ -56,7 +56,6 @@ app.use('/api/entertainment', require('./routes/api/entertainment'));
 // app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
-
 //....................................................................................................................AWS
 const upload = require('./fileUploadAppliances');
 const singleUpload = upload.single('image')
