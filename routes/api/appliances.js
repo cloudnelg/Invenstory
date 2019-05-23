@@ -9,22 +9,22 @@ const Appliance = require('../../models/appliances');
 // @route   GET api/appliances
 // @desc    Get All appliances
 // @access  Public
-// router.get('/', (req, res) => {
-//   Appliance.findOne({_id: })
-//     .sort({ date: -1 })
-//     .then(appliances => res.json(appliances));
-// });
-
 router.get('/', (req, res) => {
-  // console.log('request', req)
-  User.findOne({_id: users._id })
+  Appliance.find()
     .sort({ date: -1 })
-    .then(appliances => {
-      console.log("Appliances", appliances)
-      res.json(appliances)
-    });
-    
+    .then(appliances => res.json(appliances));
 });
+
+// router.get('/', (req, res) => {
+//   // console.log('request', req)
+//   User.find()
+//     .sort({ date: -1 })
+//     .then(appliances => {
+//       console.log("Appliances", appliances)
+//       res.json(appliances)
+//     });
+    
+// });
 
 // @route   POST api/appliances
 // @desc    Create An Appliance
