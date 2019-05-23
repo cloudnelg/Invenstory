@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
   const newEntertainment = new Entertainment({
     entertainment_name: req.body.entertainment_name,
     price: req.body.price,
-    comment: req.body.comment
+    comment: req.body.comment,
+    imgURL: req.body.imgURL
   });
 
   newEntertainment.save().then(Entertainment => res.json(Entertainment));

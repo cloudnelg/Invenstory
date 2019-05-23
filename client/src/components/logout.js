@@ -2,12 +2,9 @@ import React from 'react';
 import Radium from 'radium';
 import axios from 'axios';
 
-var styles = {
-  button: {
-    width: '100px',
-    height: '100px'
-  }
-}
+
+
+
 
 class Logout extends React.Component {
   logout() {
@@ -22,7 +19,7 @@ class Logout extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.logout} style={styles.button}>
+        <button className='logOut' onClick={this.logout}>
           Logout
             </button>
       </div>

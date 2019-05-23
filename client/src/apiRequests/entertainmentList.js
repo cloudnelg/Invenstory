@@ -11,7 +11,7 @@ var styles = {
     image: {
         width: '50px',
         height: '50px',
-        marginLeft: '350px'
+        marginLeft: '200px',
       }
 }
 
@@ -19,6 +19,7 @@ export default class EntertainmentList extends React.Component {
     state = {
         entertainment: []
     };
+    
     componentDidMount() {
         axios.get(`/api/entertainment`)
             .then(res => {
@@ -27,10 +28,14 @@ export default class EntertainmentList extends React.Component {
             });
     }
 
+    
+
     handleClick(entertainmentId) {
         axios.delete("/api/entertainment/" + entertainmentId).then((response) => {
+            
         }).then((result) => {
             alert("Item deleted refresh to remove")
+            console.log(this.state.entertainment)
         });
     }
     render() {

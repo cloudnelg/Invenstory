@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 import ModFurn from './Modal/Furniture/furnitureModal';
+import './items.css'
 import FurnitureList from '../apiRequests/furnitureList';
 
 var styles = {
@@ -9,18 +10,22 @@ var styles = {
     border: 0,
     borderRadius: 2,
     color: 'white',
-    padding: '1.1em',
-    cursor: 'pointer',
+    padding: '1.2em',
     marginLeft: '25%',
-    marginRight: '68.5%',
+    textAlign: 'center',
+    cursor: 'pointer',
+    marginTop: '1%',
+    marginBottom: '1%',
   },
+
   list: {
+    paddingTop: '1%',
     marginLeft: '25%',
     marginRight: '25%',
+    color: 'white',
     background: 'url("https://wallpapermemory.com/uploads/357/floor-background-hd-1680x1050-83195.jpg")',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
-    color: 'white',
     boxShadow: '20px 20px rgba(0,0,0,.25)',
   }
 };
@@ -43,9 +48,9 @@ class Furn extends React.Component {
     render () {
       return (
         <div>
-          <p onClick={this.toggleHidden.bind(this)} style={styles.base} >
+          <button  onClick={this.toggleHidden.bind(this)} style={styles.base} >
             Furniture
-          </p>
+          </button>
 
           {!this.state.isHidden && <List />}
         </div>

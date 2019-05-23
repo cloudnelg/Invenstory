@@ -15,6 +15,9 @@ var styles = {
   },
   upload: {
     marginLeft: '25%',
+  },
+  photo: {
+    color: 'black'
   }
 
 };
@@ -59,7 +62,7 @@ class FileUploadApp extends Component {
     return (
       <div className='container' style={styles.moda}>
         <form style={styles.upload} onSubmit={this.submitFile}>
-          <input type="file" multiple onChange={this.fileSelectedHandler} />
+          <input type="file" multiple onChange={this.fileSelectedHandler} style={styles.photo}/>
           <button type='submit' multiple onClick={this.submitFile}>Send</button>
         </form>
       </div>

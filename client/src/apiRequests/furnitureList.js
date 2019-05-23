@@ -11,7 +11,7 @@ var styles = {
   image: {
     width: '50px',
     height: '50px',
-    marginLeft: '350px'
+    marginLeft: '200px',
   }
 }
 
