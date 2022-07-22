@@ -31,7 +31,7 @@
     "express": "^4.16.3",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.16.1",
-    "file-type": "^11.0.0",
+    "file-type": "^16.5.4",
     "fs": "0.0.1-security",
     "if-env": "^1.0.4",
     "mongoose": "^5.5.6",
